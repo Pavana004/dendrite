@@ -1,25 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "../src/App.css";
+import { BrowserRouter, Route } from "react-router-dom";
+import Home from "./container/Home";
+import Search from "./container/Search";
+import Favourites from './container/Favourites';
+import Playlists from './container/Playlists';
+import Main from './container/Main';
+import Sidebar from './components/Sidebar';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Sidebar />
+        <Route path="/" component={Main} />
+        <Route path="/main" component={Main} />
+        <Route path="/search" component={Search} />
+        <Route path="/favourites" component={Favourites} />
+        <Route path="/playlists" component={Playlists} />
+      </BrowserRouter>
+    </>
   );
 }
 
